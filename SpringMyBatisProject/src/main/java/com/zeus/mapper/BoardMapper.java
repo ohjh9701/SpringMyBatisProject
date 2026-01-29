@@ -10,4 +10,6 @@ public interface BoardMapper {
 	public void update(Board board) throws Exception;
 	public void delete(Integer boardNo) throws Exception;
 	public List<Board> list() throws Exception;
+	public List<Board> boardSearch(Board board) throws Exception;
+	
 }
