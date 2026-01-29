@@ -62,7 +62,7 @@ public class BoardController {
 		log.info("boardDetail board = "+b.toString());
 		
 		try {
-			Board board = boardService.read(b.getNo());
+			Board board = boardService.read(b);
 			if(board == null) {
 				return "board/failed";
 			}
@@ -79,7 +79,7 @@ public class BoardController {
 		log.info("boardDetail board = "+board.toString());
 		
 		try {
-			boardService.delete(board.getNo());
+			boardService.delete(board);
 		} catch (Exception e) {
 			e.printStackTrace();
 			model.addAttribute("message", "%d 님의 정보 삭제가 실패하였습니다.".formatted(board.getNo()));
@@ -94,7 +94,7 @@ public class BoardController {
 		log.info("updateForm board = "+b.toString());
 		
 		try {
-			Board board = boardService.read(b.getNo());
+			Board board = boardService.read(b);
 			if(board == null) {
 				model.addAttribute("message", "%d 님의 정보가 없습니다".formatted(b.getNo()));
 				return "board/failed";

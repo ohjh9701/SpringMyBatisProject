@@ -26,8 +26,8 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public Board read(Integer no) throws Exception {
-		return boardMapper.read(no);
+	public Board read(Board board) throws Exception {
+		return boardMapper.read(board.getNo());
 	}
 
 	@Override
@@ -38,8 +38,8 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	@Transactional
-	public void delete(Integer no) throws Exception {
-		boardMapper.delete(no);
+	public void delete(Board board) throws Exception {
+		boardMapper.delete(board.getNo());
 	}
 
 	@Override
@@ -53,5 +53,4 @@ public class BoardServiceImpl implements BoardService {
 	public List<Board> boardSearch(Board board) throws Exception {
 		return boardMapper.boardSearch(board);
 	}
-
 }
